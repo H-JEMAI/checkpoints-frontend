@@ -1,0 +1,72 @@
+
+
+
+miniword.component.html
+---------------------------------
+
+
+<p>
+
+ [[ngStyle]="{
+   color: color,
+   fontSize: size +'px',
+   fontFamily: font 
+
+   }"]
+  miniword works!
+</p>
+
+<div  class="row">
+   <div class ="col-md-4">
+
+    color :<input  type="text" class= "form-control" [(ngModel)]="color" >
+   </form>">
+   </div>
+   <div class ="col-md-4">
+     taille : <input type="number" class= "form-control" [(ngModel)]="size" >
+
+  </div>
+  <div class ="col-md-4">
+
+     police :
+      <select class= "form-control" [(ngModel)]="font">
+     <option value = "verdana">verdana</option>
+     <option value = "arial">arial</option>
+     <option value = "tahoma">tahoma</option>
+    </select>
+
+
+  </div>
+</div>
+
+
+////////////////////////////////////////////////////////////////////////
+
+
+
+miniword.component.ts
+--------------------------
+
+import { Component, OnInit } from '@angular/core';
+i
+
+@Component({
+  selector: 'app-miniword',
+  templateUrl: './miniword.component.html',
+  styleUrls: ['./miniword.component.css']
+})
+export class MiniwordComponent implements OnInit {
+   color ='blue';
+    size =  35;
+    font = 'verdana';
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
+
+
+///////////////////////////////////////////////////////////////////////////
+
