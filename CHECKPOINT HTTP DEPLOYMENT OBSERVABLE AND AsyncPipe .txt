@@ -1,0 +1,109 @@
+
+
+
+
+
+-->  create a component sliderObservable :
+
+       ng g c asynchProg/sliderObservable
+
+
+
+
+
+
+///////////////////////////////////////////////
+
+app.component.html
+------------------
+
+<app-header></app-header>
+
+<app-slider-observable></app-slider-observable>
+
+<router-outlet></router-outlet>
+
+
+
+/////////////////////////////////////////////////
+
+app.slider-observable.ts
+--------------------------
+
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
+@Component({
+  selector: 'app-slider-observable',
+  templateUrl: './slider-observable.component.html',
+  styleUrls: ['./slider-observable.component.css']
+})
+export class SliderObservableComponent implements OnInit {
+
+  path='tt.png';
+  paths =[
+
+    'tt.png',
+    'tt1.png',
+  ];
+  constructor() { }
+
+
+  sliderObservable = new Observable<string>()
+    (observer)=> {
+      let i=0 ;
+     setInterval(
+         () =>{
+      if (i= this.paths.length){
+
+        i=0 ;
+      }
+        else {
+           observer.next(this.paths[i++]);
+        }
+     }, ms:1500
+
+  );
+    }
+  );
+
+
+
+  ngOnInit(){
+
+     this.sliderObservable.subscribe(
+
+      (observer) => {
+
+        this.path = path
+
+
+
+     console.log(path);
+  }
+  )
+}
+
+
+
+
+
+
+///////////////////////////////////////////////
+
+
+app.slider-observable.html
+--------------------------
+
+
+<p>slider-observable works!</p>
+
+
+
+<img src="assets/images/{{sliderObservable|async}}"
+     width="100px"
+     height="100px"
+     class="rounded-circle"
+     alt="">
+
+///////////////////////////////////////////////////
